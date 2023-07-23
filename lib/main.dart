@@ -1,8 +1,11 @@
 import 'package:cuk/splash_screen/splash_screen.dart';
 import 'package:cuk/user_list/user_list.dart';
+
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async{
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cuk/tab_controller/tab_controller.dart';
 import 'package:cuk/user_list/user_list.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _splash_screenState extends State<splash_screen> {
     super.initState();
     Timer(Duration(seconds: 3), () {
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>user_list()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ProvidedStylesExample()));
     });
   }
   @override
@@ -29,7 +30,8 @@ class _splash_screenState extends State<splash_screen> {
 
       backgroundColor: Colors.white,
       body: Center(
-        child: Image.asset("assets/images/cuklo.png"),
+        child: Image.asset("assets/images/cuklo.png",),
+
 
       ),
     );
