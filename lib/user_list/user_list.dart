@@ -12,7 +12,8 @@ class user_list extends StatefulWidget
 
 class _user_listState extends State<user_list> {
 
-  List<String> dept_names=["School of Engineering and Technology","School of physical and Chemical Sciences","School of Life Sciences","School of Social Sciences",
+  List<String> dept_names=[
+    "School of Engineering and Technology","School of physical and Chemical Sciences","School of Life Sciences","School of Social Sciences",
 
   "School of Education","School of languages","School of Media Studies","School of Legal Studies","School of Business Studies"
 
@@ -112,6 +113,7 @@ class _user_listState extends State<user_list> {
     return Scaffold(
 
       appBar: AppBar(
+
         title: Text("CUK"),
       ),
       body:Container(
@@ -161,7 +163,7 @@ class _user_listState extends State<user_list> {
                   ),
                 )
                     : const Text(
-                  'No results found Please try with diffrent search',
+                  "",
                   style: TextStyle(fontSize: 24),
                 ),
               ),
@@ -170,14 +172,14 @@ class _user_listState extends State<user_list> {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                       height: 200,
-                      child: Image.asset("assets/images/nep.jpeg",)
+                      child: Image.asset("assets/images/nep.jpeg",fit: BoxFit.fill,)
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                       height: 200,
-                      child: Image.asset("assets/images/cuetlogo.jpeg",)
+                      child: Image.asset("assets/images/cuetlogo.jpeg",fit: BoxFit.fill,)
                   ),
                 ),
 
@@ -190,7 +192,7 @@ class _user_listState extends State<user_list> {
 
 
               )),
-              SizedBox(height: 45,),
+              SizedBox(height: 25,),
               Container(
                 
                 child: Expanded(
