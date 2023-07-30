@@ -67,7 +67,12 @@ flutter:
   assets:
     - assets/images/cuklo.png
     - assets/images/nep.jpeg
-    - assets/images/
+    - assets/images/dashboard/department.png
+    - assets/images/dashboard/admiss.png
+    - assets/images/dashboard/results.png
+    - assets/images/dashboard/courses.png
+    - assets/images/dashboard/announcement.png
+    - assets/images/dashboard/locate.png
     - assets/images/itfaculty/
     - assets/
 

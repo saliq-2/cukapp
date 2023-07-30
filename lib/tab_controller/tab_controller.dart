@@ -33,7 +33,7 @@ class _ProvidedStylesExampleState extends State<ProvidedStylesExample> {
     PersistentBottomNavBarItem(
         icon: const Icon(Icons.home),
 
-        activeColorPrimary: Colors.blue,
+        activeColorPrimary: Colors.purple,
         inactiveColorPrimary: Colors.grey,
         inactiveColorSecondary: Colors.purple),
     PersistentBottomNavBarItem(

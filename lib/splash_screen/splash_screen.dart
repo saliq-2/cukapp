@@ -30,7 +30,14 @@ class _splash_screenState extends State<splash_screen> {
 
       backgroundColor: Colors.white,
       body: Center(
-        child: Image.asset("assets/images/cuklo.png",),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset("assets/images/cuklo.png",),
+            SizedBox(height: 20,),
+            Text("Department of IT",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,fontSize: 20),)
+          ],
+        ),
 
 
       ),

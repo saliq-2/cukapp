@@ -13,13 +13,36 @@ class user_list extends StatefulWidget
 class _user_listState extends State<user_list> {
 
   List<String> dept_names=[
-    "School of Engineering and Technology","School of physical and Chemical Sciences","School of Life Sciences","School of Social Sciences",
+    "School of Engineering and Technology",
+    "School of physical and Chemical Sciences",
+    "School of Life Sciences",
+    "School of Social Sciences",
 
-  "School of Education","School of languages","School of Media Studies","School of Legal Studies","School of Business Studies"
+  "School of Education",
+    "School of languages",
+    "School of Media Studies",
+    "School of Legal Studies",""
+        "School of Business Studies",
 
 
   ];
 
+
+  //Dashboard
+
+  List<String> dashboard=["Departments","Admissions","Results","Courses","Announcements","Locate Us"];
+  List<String> dashboard_images=[
+    "assets/images/dashboard/department.png",
+    "assets/images/dashboard/admiss.png",
+
+    "assets/images/dashboard/results.png",
+    "assets/images/dashboard/courses.png",
+    "assets/images/dashboard/announcement.png",
+    "assets/images/dashboard/locate.png",
+
+
+
+  ];
   List <Map<String,dynamic>> faculty=[
     //It
     {
@@ -113,154 +136,172 @@ class _user_listState extends State<user_list> {
     return Scaffold(
 
       appBar: AppBar(
+        backgroundColor: Colors.deepPurple.shade400,
 
         title: Text("CUK"),
       ),
-      body:Container(
-        child:Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                  width: 400,
-                  child: TextField(
-                    autocorrect: false,
-                    onChanged: (value)=>_runFilter(value),
-                    decoration: InputDecoration(
+      body:SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height*1,
+          child:Padding(
+            padding: const EdgeInsets.only(top: 21),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
 
-                      label: Text("Enter Faculty name"),
-                      border: OutlineInputBorder(
+                    width: 400,
+                    child: TextField(
+                      autocorrect: false,
+                      onChanged: (value)=>_runFilter(value),
+                      decoration: InputDecoration(
 
-                      )
-                    ),
+                        label: Text("Enter Faculty name"),
+                        hintText: "Search For Faculty",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
 
-                  )),
-              SizedBox(height: 20,),
-              Container(
-                height: 80,
-                child: _foundfaculty.isNotEmpty
-                    ? ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => Card(
-                    elevation: 1,
-                    margin: const EdgeInsets.symmetric(vertical: 2),
-                    child: InkWell(
-                      onTap: ()
-                      {
+                        )
+                      ),
 
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>user_info(obj: _foundfaculty[index])));
-                      },
+                    )),
+                SizedBox(height: 20,),
+                Container(
+                  height: 50,
+                  child: _foundfaculty.isNotEmpty
+                      ? ListView.builder(
+                    itemCount: 1,
+                    itemBuilder: (context, index) => Card(
+                      elevation: 1,
+                      margin: const EdgeInsets.symmetric(vertical: 2),
+                      child: InkWell(
+                        onTap: ()
+                        {
 
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          radius: 30.0,
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>user_info(obj: _foundfaculty[index])));
+                        },
+
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            radius: 10.0,
+                          ),
+                          title: Text(_foundfaculty[index]['name']),
+                          // subtitle: Text('${_foundfaculty[index]["phone"]}'),
                         ),
-                        title: Text(_foundfaculty[index]['name']),
-                        subtitle: Text('${_foundfaculty[index]["phone"]}'),
                       ),
                     ),
-                  ),
-                )
-                    : const Text(
-                  "",
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-              CarouselSlider(items: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                      height: 200,
-                      child: Image.asset("assets/images/nep.jpeg",fit: BoxFit.fill,)
+                  )
+                      : const Text(
+                    "",
+                    style: TextStyle(fontSize: 24),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                      height: 200,
-                      child: Image.asset("assets/images/cuetlogo.jpeg",fit: BoxFit.fill,)
+                CarouselSlider(items: [
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        height: 100,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(11),
+                            child: Image.asset("assets/images/nep.jpeg",fit: BoxFit.fill,))
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        height: 100,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(11),
+                            child: Image.asset("assets/images/cuetlogo.jpeg",fit: BoxFit.fill,))
+                    ),
+                  ),
 
 
 
-              ], options: CarouselOptions(
+                ], options: CarouselOptions(
 
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlay: true,
-
-
-              )),
-              SizedBox(height: 25,),
-              Container(
-                
-                child: Expanded(
-                  child: GridView.builder(
-                      itemCount: dept_names.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisSpacing: 10,
-                    crossAxisCount: 2,
-                  ), itemBuilder: (context,index)=>
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: SizedBox(
-                          width: 150,
-                          height: 280,
-                          child: Card(
-                            shadowColor: Colors.grey.shade500,
-                            elevation: 2,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CircleAvatar(
-                                  radius: 45,
-                                  backgroundColor: Colors.transparent,
-                                  child: Image.asset("assets/images/cuklo.png"),
-                                ),
+                  autoPlayInterval: Duration(seconds: 3),
+                  aspectRatio: 9/4,
+                  autoPlay: true,
 
 
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Center(child: Text(dept_names[index],style: TextStyle(fontWeight: FontWeight.bold),)),
-                                ),
-                                Divider(
-                                  thickness: 2,
+                )),
+                SizedBox(height: 25,),
+                Container(
 
-                                ),
+                  child: Expanded(
+                    child: GridView.builder(
+                      padding: EdgeInsets.only(left: 10,right: 10),
+                        itemCount: dashboard.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisSpacing: 10,
+                      crossAxisCount: 2,
+                    ), itemBuilder: (context,index)=>
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: SizedBox(
 
-                                  InkWell(
+                            width: 150,
+                            height: 280,
+                            child: Card(
+
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(17),
+                              ),
+                              shadowColor: Colors.purple.shade500,
+                              elevation: 2,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(height: 20,),
+                                  CircleAvatar(
+                                    radius: 45,
+                                    backgroundColor: Colors.transparent,
+                                    child: Image.asset(dashboard_images[index]),
+                                  ),
 
 
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Center(child: Text(dashboard[index],style: TextStyle(fontWeight: FontWeight.bold,),)),
+                                  ),
 
-                                      onTap: (){
-                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>dept_model()));
-                                      },child: Text("View All",style: TextStyle(color: Colors.blueAccent),))
 
-                              ],
+                                    InkWell(
 
 
 
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>dept_model()));
+                                        },child: Text("View All",style: TextStyle(color: Colors.purple.shade400),)),
+
+                                ],
 
 
 
-                            )
 
 
+
+                              )
+
+
+                            ),
                           ),
                         ),
-                      ),
 
 
 
 
+                    ),
                   ),
                 ),
-              ),
 
-            ],
-          ),
-        ) ,
+
+              ],
+            ),
+          ) ,
+        ),
       ) ,
     );
   }
