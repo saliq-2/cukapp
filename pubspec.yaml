@@ -41,6 +41,7 @@ dependencies:
 #  app_settings: ^4.3.1
 #  firebase_auth: ^4.3.0
   firebase_core: ^2.8.0
+  flutter_phone_direct_caller: ^2.1.1
 
 
 dev_dependencies:
@@ -66,6 +67,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/cuklo.png
+    - assets/images/cuetlogo.jpeg
     - assets/images/nep.jpeg
     - assets/images/dashboard/department.png
     - assets/images/dashboard/admiss.png

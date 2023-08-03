@@ -57,6 +57,7 @@ class _ProvidedStylesExampleState extends State<ProvidedStylesExample> {
   Widget build(final BuildContext context) => Scaffold(
 
     body: PersistentTabView(
+
       context,
       controller: _controller,
       screens: _buildScreens(),
@@ -73,7 +74,7 @@ class _ProvidedStylesExampleState extends State<ProvidedStylesExample> {
       decoration: const NavBarDecoration(colorBehindNavBar: Colors.indigo),
       itemAnimationProperties: const ItemAnimationProperties(
         duration: Duration(milliseconds: 400),
-        curve: Curves.ease,
+        curve: Curves.bounceIn,
       ),
       screenTransitionAnimation: const ScreenTransitionAnimation(
         animateTabTransition: true,
